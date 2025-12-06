@@ -1,16 +1,85 @@
-# React + Vite
+# 👾 Stranger Things Explorer (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Pregunté a ChatGPT por un enunciado para reforzar conceptos y este fue el resultado.
 
-Currently, two official plugins are available:
+## 📝 Enunciado
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Crea una aplicación llamada **Stranger Things Explorer** utilizando **React**, **react-router-dom** y **Tailwind CSS**, que consuma datos de la API pública de Stranger Things:
 
-## React Compiler
+https://strangerthingsapi.netlify.app/docs
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+La aplicación debe permitir explorar información del universo de Stranger Things mediante varias páginas.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧭 Funcionalidades
+
+### 🏠 Home
+- Página principal con una breve introducción.
+- Navegación hacia el resto de secciones.
+
+### 🧑‍🤝‍🧑 Characters
+- Listado de personajes obtenidos desde la API (`/characters`).
+- Mostrar por cada personaje:
+  - Nombre
+  - Imagen
+  - Estado (alive / deceased)
+- Cada personaje debe ser un enlace a su página de detalle.
+
+### 👤 Character Detail
+- Página dinámica usando rutas con parámetros.
+- Mostrar información detallada del personaje seleccionado.
+- Manejar estados de **cargando**, **error** y **datos listos**.
+
+### 📍 Locations (opcional)
+- Listado de localizaciones del universo Stranger Things.
+- Componentizar cada localización en una card.
+
+### 🚫 404
+- Página NotFound para rutas inexistentes.
+
+---
+
+## 🔗 Rutas requeridas
+
+Debe usarse **react-router-dom** para definir al menos:
+
+- `/` → Home  
+- `/characters` → Listado de personajes  
+- `/characters/:id` → Detalle de personaje  
+- `*` → 404  
+
+---
+
+## 🎯 Objetivo
+
+Reforzar:
+
+- React Router DOM (routes, params, links)
+- Componentes y props
+- useState
+- useEffect + cleanup
+- Fetching de datos desde API externa
+- Custom hooks (por ejemplo `useCharacters`, `useCharacter`)
+- Layout reutilizable (Header + Footer)
+- Estilos con Tailwind CSS
+- Testing básico (opcional)
+
+---
+
+## 🛠️ Tecnologías
+
+- React + Vite
+- JavaScript
+- Tailwind CSS
+- react-router-dom
+- API pública de Stranger Things
+
+---
+
+## ⭐ Extras opcionales
+
+- Buscador de personajes.
+- Filtro por estado (vivo / muerto).
+- Animaciones de transición entre páginas.
+- Skeleton loaders.
