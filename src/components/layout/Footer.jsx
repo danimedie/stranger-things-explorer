@@ -1,5 +1,10 @@
 export function Footer() {
+
+  const date = new Date().getFullYear()
+
   return (
-    <h1>Footer</h1>
+    <footer className="bg-upsidedown p-5 text-center text-accent">
+      <p>Copyright &copy;{ date } - Daniel Medié</p>
+    </footer>
   )
 }
