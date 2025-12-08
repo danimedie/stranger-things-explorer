@@ -18,17 +18,19 @@ export function useCharacters() {
 }
 
 export function useCharacter() {
-  const id = useParams()
-  const [character, setCharacter] = useState([])
+  const { id } = useParams()
+  const [character, setCharacter] = useState(null)
 
   useEffect(() => {
     async function loadCharacter() {
+      if (!id) return
+
       const data = await getCharacterById(id)
       setCharacter(data)
     }
 
     loadCharacter()
-  }, [])
+  }, [id])
 
   return { character: character }
 }
