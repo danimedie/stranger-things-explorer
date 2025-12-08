@@ -5,3 +5,9 @@ export const getAllCharacters = async () => {
   const data = await res.json()
   return data
 }
+
+export const getCharacterById = async ({ id }) => {
+  const res = await fetch(STAGER_THINGS_ENDPOINT + `/${id}`)
+  const data = await res.json()
+  return data
+}

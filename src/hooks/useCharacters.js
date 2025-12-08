@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllCharacters } from "../services/characters"
+import { getAllCharacters, getCharacterById } from "../services/characters"
+import { useParams } from "react-router-dom";
 
 export function useCharacters() {
   const [characters, setCharacters] = useState([])
@@ -14,4 +15,20 @@ export function useCharacters() {
   }, [])
 
   return { characters: characters }
+}
+
+export function useCharacter() {
+  const id = useParams()
+  const [character, setCharacter] = useState([])
+
+  useEffect(() => {
+    async function loadCharacter() {
+      const data = await getCharacterById(id)
+      setCharacter(data)
+    }
+
+    loadCharacter()
+  }, [])
+
+  return { character: character }
 }

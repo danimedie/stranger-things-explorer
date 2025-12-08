@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function CharacterCard({ character }) {
   return (
     <li className="flex items-center justify-center w-fit">
-      <Link className="group hover:scale-105 transition bg-upsidedown rounded-xl shadow-lg">
+      <Link to={`/characters/${character._id}`} className="group hover:scale-105 transition bg-upsidedown rounded-xl shadow-lg">
         <img
           src={character.photo ?? 'https://i.pinimg.com/736x/b8/b7/2d/b8b72db3252b451dc2b3e14ebe399dcf.jpg'}
           alt={character.name ?? 'Unknown'}

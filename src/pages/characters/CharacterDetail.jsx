@@ -1,5 +1,13 @@
+import { useCharacter } from "../../hooks/useCharacters"
+
 export default function CharacterDetail() {
+  const { character } = useCharacter()
+
   return (
-    <h1>CharacterDetail</h1>
+    <>
+      {character && (
+        <h1>{character.name}</h1>
+      )}
+    </>
   )
 }
