@@ -16,8 +16,8 @@ export default function CharacterList() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-accent p-8 text-shadow-lg">Stranger Things Characters</h1>
-      <ul className="grid grid-cols-5 gap-8 px-8">
+      <h1 className="text-3xl font-bold text-accent py-8 px-2 text-shadow-lg">Stranger Things Characters</h1>
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-2">
         {characters?.map((character) => {
           return (
             <CharacterCard key={character._id} character={character}/>
