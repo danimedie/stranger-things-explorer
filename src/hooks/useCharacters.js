@@ -4,33 +4,53 @@ import { useParams } from "react-router-dom";
 
 export function useCharacters() {
   const [characters, setCharacters] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function loadCharacters() {
-      const data = await getAllCharacters()
-      setCharacters(data)
+      try {
+        setLoading(true)
+        const data = await getAllCharacters()
+        setCharacters(data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
     }
     
     loadCharacters()
   }, [])
 
-  return { characters: characters }
+  return { characters, loading }
 }
 
 export function useCharacter() {
   const { id } = useParams()
   const [character, setCharacter] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function loadCharacter() {
-      if (!id) return
+      setLoading(true)
+      
+      if (!id) {
+        setLoading(false)
+        return
+      }
 
-      const data = await getCharacterById(id)
-      setCharacter(data)
+      try {
+        const data = await getCharacterById(id)
+        setCharacter(data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
     }
 
     loadCharacter()
   }, [id])
 
-  return { character: character }
+  return { character, loading }
 }
