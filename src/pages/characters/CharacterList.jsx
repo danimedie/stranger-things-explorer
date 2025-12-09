@@ -1,8 +1,18 @@
 import { CharacterCard } from "../../components/ui/CharacterCard";
+import { Loading } from "../../components/ui/Loading";
 import { useCharacters } from "../../hooks/useCharacters";
+import NotFound from "../NotFound";
 
 export default function CharacterList() {
-  const { characters } = useCharacters()
+  const { characters, loading } = useCharacters()
+
+  if (loading) {
+    return <Loading /> 
+  }
+
+  if (!characters) {
+    return <NotFound /> 
+  }
 
   return (
     <>
